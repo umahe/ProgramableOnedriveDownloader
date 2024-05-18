@@ -1,0 +1,6 @@
+requests
+msal
+openpyxl
+pandas
+tk
+colorama

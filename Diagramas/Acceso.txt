@@ -1,0 +1,7 @@
+title Acceso Seguro
+
+MesaApp->MsGraph:Solicitar AccessToken
+MsGraph->Microsoft Azure:Generar AccessToken
+MesaApp(1)<--Microsoft Azure:ACK
+MesaApp->(2)Microsoft Azure:confirmar datos de usuario
+MesaApp(1)<--Microsoft Azure:Validacion Acesso

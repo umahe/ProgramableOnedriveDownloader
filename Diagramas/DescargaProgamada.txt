@@ -1,0 +1,17 @@
+title Descarga Programada
+participant EventoProgramado
+participant Sistema
+EventoProgramado->MesaApp:Solicita Descarga\n
+MesaApp->Sistema: Solicita Archivos Insumo
+Sistema->MesaApp: TXT y Excel Asociados al DT
+MesaApp->Sistema: Crear Carpeta DT
+Sistema->MesaApp: Carpeta Creada
+MesaApp-->MsGraphAPI:Solicitar Lista Archivos CC
+MsGraphAPI->One Drive:Listar Info Carpeta por ID
+MsGraphAPI(2)<--One Drive: Listado RAW
+MesaApp<-MsGraphAPI: Listado Filtrado
+MesaApp->MsGraphAPI: Solicitar Desacarga Filtrada
+MsGraphAPI->One Drive:Descargar Archivos por ID
+Sistema(5)<--One Drive:  Descarga de Archivos 
+MsGraphAPI->One Drive:Validacion de integridad 
+MesaApp(1)<--One Drive: ACK
